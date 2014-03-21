@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Record count:</strong>
+  <%= @import.record_count %>
+</p>
+
+<p>
+  <strong>Total gross revenue:</strong>
+  <%= @import.total_gross_revenue %>
+</p>
+
+<p>
+  <strong>Completed:</strong>
+  <%= @import.completed %>
+</p>
+
+<p>
+  <strong>File:</strong>
+  <%= @import.file %>
+</p>
+
+<%= link_to 'Edit', edit_import_path(@import) %> |
+<%= link_to 'Back', imports_path %>

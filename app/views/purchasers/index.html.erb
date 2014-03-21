@@ -1,0 +1,19 @@
+<h1>Listing purchasers</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @purchasers.each do |purchaser| %>
+      <tr>
+        <td><%= purchaser.name %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

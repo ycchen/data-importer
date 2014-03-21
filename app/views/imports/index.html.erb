@@ -1,0 +1,33 @@
+<h1>Imports data <%= link_to 'New Import', new_import_path, class: 'btn btn-primary' %>
+</h1>
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Record count</th>
+      <th>Total gross revenue</th>
+      <th>Completed</th>
+      <th>Imported date</th>
+      <th></th>
+      
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @imports.each do |import| %>
+      <tr>
+        <td><%= import.record_count %></td>
+        <td><%= number_to_currency(import.total_gross_revenue) %></td>
+        <td><%= import.completed %></td>
+        <td><%= import.created_at.getlocal.strftime("%F %r") %></td>
+        <!-- <td><%= import.file %></td> -->
+        <td><%= link_to 'Show Detail', import_import_details_path(import), class: 'btn btn-default btn-xs' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+

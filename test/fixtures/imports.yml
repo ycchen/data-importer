@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  record_count: 1
+  total_gross_revenue: 9.99
+  completed: false
+  file: 
+
+two:
+  record_count: 1
+  total_gross_revenue: 9.99
+  completed: false
+  file: 

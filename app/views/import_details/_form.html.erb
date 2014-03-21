@@ -1,0 +1,45 @@
+<%= form_for(@import_detail) do |f| %>
+  <% if @import_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@import_detail.errors.count, "error") %> prohibited this import_detail from being saved:</h2>
+
+      <ul>
+      <% @import_detail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :purchaser_name %><br>
+    <%= f.text_field :purchaser_name %>
+  </div>
+  <div class="field">
+    <%= f.label :merchant_name %><br>
+    <%= f.text_field :merchant_name %>
+  </div>
+  <div class="field">
+    <%= f.label :merchant_address %><br>
+    <%= f.text_field :merchant_address %>
+  </div>
+  <div class="field">
+    <%= f.label :item_description %><br>
+    <%= f.text_field :item_description %>
+  </div>
+  <div class="field">
+    <%= f.label :item_price %><br>
+    <%= f.text_field :item_price %>
+  </div>
+  <div class="field">
+    <%= f.label :purchase_count %><br>
+    <%= f.number_field :purchase_count %>
+  </div>
+  <div class="field">
+    <%= f.label :import_id %><br>
+    <%= f.text_field :import_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

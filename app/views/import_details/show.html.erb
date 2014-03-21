@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Purchaser name:</strong>
+  <%= @import_detail.purchaser_name %>
+</p>
+
+<p>
+  <strong>Merchant name:</strong>
+  <%= @import_detail.merchant_name %>
+</p>
+
+<p>
+  <strong>Merchant address:</strong>
+  <%= @import_detail.merchant_address %>
+</p>
+
+<p>
+  <strong>Item description:</strong>
+  <%= @import_detail.item_description %>
+</p>
+
+<p>
+  <strong>Item price:</strong>
+  <%= @import_detail.item_price %>
+</p>
+
+<p>
+  <strong>Purchase count:</strong>
+  <%= @import_detail.purchase_count %>
+</p>
+
+<p>
+  <strong>Import:</strong>
+  <%= @import_detail.import %>
+</p>
+
+<%= link_to 'Edit', edit_import_detail_path(@import_detail) %> |
+<%= link_to 'Back', import_details_path %>

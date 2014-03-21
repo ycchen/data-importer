@@ -1,0 +1,113 @@
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
+
+
+## Download and install
+Using git to clone the repository to your local drive
+
+# git clone https://github.com/ycchen/data-engineering
+
+# cd to data-engineering folder and run bundle install
+
+## Database setup
+
+# rake db:migrate
+
+## Run the webserver
+
+# rails server
+
+## View the webpage
+
+# http://localhost:3000/
+
+
+## run the test
+
+# rake db:migrate RAILS_ENV=test
+# rspec
+
+
+## following steps are how I did this application
+
+1. create purchaser model
+
+$ rails g scaffold purchaser name:string
+
+2. create item model
+
+$ rails g scaffold item description:string price:float
+
+3. create merchant model
+
+$ rails g scaffold merchant name:string address:string
+
+4. create sale model
+
+$ rails g scaffold sale purchaser:references item:references merchant:references count:integer item_cost:decimal
+
+5. use devise to create user model
+
+$ rails g devise:install
+
+$ rails g devise User
+
+$ rails g devise:views
+
+6. create import model
+
+$ rails g scaffold import record_count:integer total_gross_revenue:decimal completed:boolean file:attachment 
+
+7. update config/routes.rb to set the root 'importers#index'
+
+8. rake db:migrate
+
+9. update models/import.rb with paperclip
+	has_attached_file :file
+	validates_attachment :file, :presence => true,
+	:content_type => { :content_type => %w(image/jpeg image/jpg image/png text/tab)},
+	:size => { :in => 0..100.kilobytes}
+
+10. create process_file method to parsing file, also include reqire 'csv' in config\application.rb
+
+require 'csv'
+
+11. create import_detail model
+$ rails g scaffold import_detail purchaser_name:string merchant_name:string merchant_address:string item_description:string item_price:decimal purchase_count:integer import:references
+
+12. 
+  rescue_from ActiveRecord::RecordNotFound, :with => :not_found
+  rescue_from AbstractController::ActionNotFound, :with => :not_found
+  rescue_from ActionController::RoutingError, :with => :not_found
+
+13 start testiing with rspec
+ $ rails g rspec:install
+
+
+
