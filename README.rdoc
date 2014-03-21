@@ -29,6 +29,7 @@ Please feel free to use a different markup language if you do not plan to run
 
 
 ## Download and install
+
 Using git to clone the repository to your local drive
 
 # git clone https://github.com/ycchen/data-engineering
@@ -51,6 +52,7 @@ Using git to clone the repository to your local drive
 ## run the test
 
 # rake db:migrate RAILS_ENV=test
+
 # rspec
 
 
